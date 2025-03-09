@@ -1,0 +1,5 @@
+.idea/
+bot.env
+
+src/__pycache__/
+*.pyc
