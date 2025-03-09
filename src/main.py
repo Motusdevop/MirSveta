@@ -13,7 +13,7 @@ from aiogram.types import (CallbackQuery, InlineKeyboardButton,
 
 from config import TOKEN, admins
 from keyboards import Catalog, Start, back_button
-from src import utils
+import utils
 
 dp = Dispatcher()
 
