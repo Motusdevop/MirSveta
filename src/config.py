@@ -12,5 +12,6 @@ MESSAGES_PATH = "messages.json"
 
 admins = [
     700178752,
-    1245902436
+    1245902436,
+    6077616211
 ]
