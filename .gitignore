@@ -3,5 +3,3 @@ bot.env
 
 src/__pycache__/
 *.pyc
-
-messages.json
