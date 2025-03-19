@@ -154,9 +154,9 @@ async def general_callback_handler(callback: CallbackQuery, state: FSMContext):
                 if messages:
                     for item in messages:
                         await callback.bot.copy_message(
-                            item["chat_id"],
                             callback.message.chat.id,
-                            item["message_id"],
+                            item["chat_id"],
+                            item["message_id"]
                         )
                         await asyncio.sleep(1)
                 else:
@@ -175,7 +175,7 @@ async def general_callback_handler(callback: CallbackQuery, state: FSMContext):
             if messages:
                 for item in messages:
                     await callback.bot.copy_message(
-                        item["chat_id"], callback.message.chat.id, item["message_id"]
+                        callback.message.chat.id, item["chat_id"], item["message_id"]
                     )
                     await asyncio.sleep(1)
             else:
