@@ -1,6 +1,9 @@
 .idea/
 bot.env
 
+venv/
+.venv/
+
 src/__pycache__/
 *.pyc
 
