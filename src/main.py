@@ -151,14 +151,22 @@ async def general_callback_handler(callback: CallbackQuery, state: FSMContext):
                 messages = utils.get_messages().get(callback.data, [])
                 await callback.message.delete()
 
+                print(callback.data)
+
                 if messages:
+                    print(callback.data)
                     for item in messages:
-                        await callback.bot.copy_message(
-                            callback.message.chat.id,
-                            item["chat_id"],
-                            item["message_id"]
-                        )
-                        await asyncio.sleep(1)
+                        try:
+                            await callback.bot.copy_message(
+                                callback.message.chat.id,
+                                item["chat_id"],
+                                item["message_id"]
+                            )
+                            await asyncio.sleep(0.5)
+                        except Exception as e:
+                            print(item["chat_id"], item["message_id"])
+
+                            print(e)
                 else:
                     await callback.message.answer(
                         "ℹ️ **В этой категории пока ничего нет.**"
@@ -173,11 +181,19 @@ async def general_callback_handler(callback: CallbackQuery, state: FSMContext):
             await callback.message.delete()
 
             if messages:
+                print(callback.data)
                 for item in messages:
-                    await callback.bot.copy_message(
-                        callback.message.chat.id, item["chat_id"], item["message_id"]
-                    )
-                    await asyncio.sleep(1)
+                    try:
+                        await callback.bot.copy_message(
+                            callback.message.chat.id,
+                            item["chat_id"],
+                            item["message_id"]
+                        )
+                        await asyncio.sleep(0.5)
+                    except Exception as e:
+                        print(item["chat_id"], item["message_id"])
+
+                        print(e)
             else:
                 await callback.message.answer("ℹ️ **В этой категории пока ничего нет.**")
 
